@@ -1,0 +1,90 @@
+/* ===== 科幻 HUD 设计语言：深空底 + 霓虹辉光 + 玻璃面板 ===== */
+page {
+  /* 纯色底色兜底，确保底部安全区/回弹区不透白 */
+  background-color: #060B16;
+  /* 顶部辉光 + 角点紫晕 + 科技网格 + 深空底色 */
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgba(45, 212, 255, 0.12), transparent 55%),
+    radial-gradient(80% 50% at 100% 0%, rgba(181, 123, 255, 0.08), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(120, 160, 220, 0.04) 0 1rpx, transparent 1rpx 44rpx),
+    repeating-linear-gradient(90deg, rgba(120, 160, 220, 0.04) 0 1rpx, transparent 1rpx 44rpx),
+    #060B16;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", Helvetica, "Microsoft YaHei", sans-serif;
+  color: #DCE7FF;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+/* 科幻等宽数字 */
+.mono {
+  font-family: "Bahnschrift", "DIN Alternate", "Roboto Mono", ui-monospace, Menlo, Consolas, monospace;
+  letter-spacing: 1rpx;
+}
+
+/* HUD 玻璃面板 + 对角角标 */
+.card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(28, 44, 74, 0.55), rgba(11, 18, 34, 0.65));
+  border: 1rpx solid rgba(45, 212, 255, 0.22);
+  border-radius: 24rpx;
+  padding: 36rpx;
+  box-shadow: 0 0 0 1rpx rgba(45, 212, 255, 0.05) inset,
+              0 10rpx 36rpx rgba(0, 0, 0, 0.45),
+              0 0 28rpx rgba(45, 212, 255, 0.10);
+}
+.card::before, .card::after {
+  content: "";
+  position: absolute;
+  width: 26rpx; height: 26rpx;
+  border: 2rpx solid rgba(45, 212, 255, 0.7);
+  pointer-events: none;
+}
+.card::before { top: 14rpx; left: 14rpx; border-right: none; border-bottom: none; }
+.card::after  { bottom: 14rpx; right: 14rpx; border-left: none; border-top: none; }
+
+/* 区块标题：霓虹竖条 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #EAF2FF;
+  margin-bottom: 24rpx;
+  padding-left: 20rpx;
+  position: relative;
+}
+.section-title::before {
+  content: "";
+  position: absolute; left: 0; top: 6rpx; bottom: 6rpx;
+  width: 6rpx; border-radius: 4rpx;
+  background: linear-gradient(180deg, #2DD4FF, #3DF5B0);
+  box-shadow: 0 0 12rpx rgba(45, 212, 255, 0.7);
+}
+.section-sub { font-size: 24rpx; color: #7C8DB5; }
+
+/* 文字辅助 */
+.muted { color: #7C8DB5; }
+.primary { color: #3DF5B0; }
+.warn { color: #FFC24B; }
+.accent { color: #2DD4FF; }
+
+/* 主按钮：霓虹青 */
+.btn-primary {
+  background: linear-gradient(135deg, #2DD4FF, #1FA8E0);
+  color: #04121E;
+  border-radius: 999rpx;
+  font-weight: 700;
+  box-shadow: 0 10rpx 30rpx rgba(45, 212, 255, 0.4), 0 0 24rpx rgba(45, 212, 255, 0.35);
+}
+.btn-ghost {
+  background: rgba(45, 212, 255, 0.06);
+  color: #2DD4FF;
+  border: 2rpx solid rgba(45, 212, 255, 0.5);
+  border-radius: 999rpx;
+  font-weight: 600;
+  box-shadow: 0 0 18rpx rgba(45, 212, 255, 0.15) inset;
+}
+
+/* 通用布局 */
+.row { display: flex; flex-direction: row; align-items: center; }
+.row-between { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.col { display: flex; flex-direction: column; }
+.page-pad { padding: 32rpx; box-sizing: border-box; }

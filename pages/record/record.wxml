@@ -1,0 +1,40 @@
+<wxs module="m">
+module.exports.inArray = function (arr, v) {
+  return arr.indexOf(v) >= 0;
+}
+</wxs>
+
+<view class="page-pad">
+
+  <view class="card time-card">
+    <view class="muted section-sub">记录时间</view>
+    <view class="time-val">{{timeStr}}</view>
+    <view class="muted section-sub">此刻的情绪和场景，是看清自己的开始</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">这次是因为什么？</view>
+    <view class="chips">
+      <view
+        wx:for="{{triggers}}"
+        wx:key="*this"
+        class="chip {{m.inArray(selected, item) ? 'chip-on' : ''}}"
+        data-t="{{item}}"
+        bindtap="toggle">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">在哪里（选填）</view>
+    <input class="input" placeholder="例如：公司楼下 / 家里 / 酒吧" value="{{location}}" bindinput="onLocation" />
+  </view>
+
+  <view class="card">
+    <view class="section-title">想说点什么（选填）</view>
+    <textarea class="textarea" placeholder="记录当下的想法，帮未来的你理解自己" value="{{note}}" bindinput="onNote" maxlength="200" />
+  </view>
+
+  <view class="save-btn btn-primary" bindtap="save" hover-class="save-hover">保存这一笔</view>
+  <view class="tip muted">提示：记录不是自责，而是给改变积累数据。</view>
+
+</view>

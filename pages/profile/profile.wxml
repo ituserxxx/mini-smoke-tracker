@@ -1,0 +1,42 @@
+<view class="page-pad">
+
+  <view class="card">
+    <view class="section-title">我的目标</view>
+
+    <view class="field row-between">
+      <view class="field-label">每日上限（支）</view>
+      <input class="field-input" type="number" value="{{dailyLimit}}" bindinput="onLimit" />
+    </view>
+    <view class="field row-between">
+      <view class="field-label">每包价格（元）</view>
+      <input class="field-input" type="number" value="{{pricePerPack}}" bindinput="onPrice" />
+    </view>
+    <view class="field row-between">
+      <view class="field-label">每包容量的支数</view>
+      <input class="field-input" type="number" value="{{cigarettesPerPack}}" bindinput="onPack" />
+    </view>
+    <view class="field row-between">
+      <view class="field-label">开始日期</view>
+      <picker mode="date" value="{{startDate}}" bindchange="onDate">
+        <view class="field-value">{{startDate}} ›</view>
+      </picker>
+    </view>
+    <view class="field row-between">
+      <view class="field-label">戒烟模式（上限视为 0）</view>
+      <switch checked="{{quitMode}}" color="#2DD4FF" bindchange="onQuit" />
+    </view>
+
+    <view class="save-btn btn-primary" bindtap="save" hover-class="save-hover">保存设置</view>
+    <view class="muted tip">这些数字会用来计算「累计省钱」与「连续达标」，请按真实情况填写。</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">数据</view>
+    <view class="danger-btn" bindtap="clearData">清空所有数据</view>
+  </view>
+
+  <view class="about muted">
+    吸烟刺客 · 一款帮你看清自己、温柔改变的小工具
+  </view>
+
+</view>

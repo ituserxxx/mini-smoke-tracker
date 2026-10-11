@@ -1,0 +1,60 @@
+<view class="page">
+
+  <!-- 核心换算 -->
+  <view class="card hero">
+    <view class="hero-label">累计吸烟</view>
+    <view class="hero-num mono">{{total}}<text class="unit">支</text></view>
+    <view class="hero-life">
+      约缩短预期寿命 <text class="life-num mono">{{lifeText}}</text>
+    </view>
+    <view class="hero-range">估算区间 {{lowText}} ~ {{highText}}（每支 11–22 分钟）</view>
+    <view class="hero-free">
+      <text class="free-k">距上一支烟</text>
+      <text class="free-v mono">{{freeText}}</text>
+    </view>
+  </view>
+
+  <!-- 每支烟的代价 -->
+  <view class="section-title">每多吸一支烟，代价是</view>
+  <view class="cost-grid">
+    <view class="cost-item" wx:for="{{perCig}}" wx:key="l">
+      <view class="cost-v mono" style="color:{{item.c}}">{{item.v}}</view>
+      <view class="cost-l">{{item.l}}</view>
+      <view class="cost-d">{{item.d}}</view>
+    </view>
+  </view>
+
+  <!-- 疾病风险 -->
+  <view class="section-title">相对非吸烟者的风险</view>
+  <view class="card risk-card">
+    <view class="risk-item" wx:for="{{risks}}" wx:key="name">
+      <view class="risk-name">{{item.name}}</view>
+      <view class="risk-level mono">{{item.level}}</view>
+      <view class="risk-src">{{item.src}}</view>
+    </view>
+  </view>
+
+  <!-- 戒烟恢复时间轴 -->
+  <view class="section-title">戒烟后，身体在自愈</view>
+  <view class="card tl-card">
+    <view class="tl-head">已达成 {{achieved}} / {{recovery.length}} 个里程碑</view>
+    <view class="tl" wx:for="{{recovery}}" wx:key="time">
+      <view class="tl-dot {{item.done ? 'on' : ''}}"></view>
+      <view class="tl-body">
+        <view class="tl-time mono {{item.done ? 'on' : ''}}">{{item.time}}</view>
+        <view class="tl-desc">{{item.desc}}</view>
+      </view>
+      <view class="tl-flag" wx:if="{{item.done}}">✓</view>
+    </view>
+  </view>
+
+  <!-- 数据来源 -->
+  <view class="section-title">数据来源</view>
+  <view class="card src-card">
+    <view class="src-item" wx:for="{{sources}}" wx:key="*this">· {{item}}</view>
+    <view class="src-note">
+      以上均为群体层面的流行病学统计，用于科普与自我激励，不能替代医生的个人化建议。
+    </view>
+  </view>
+
+</view>

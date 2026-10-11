@@ -1,0 +1,55 @@
+<view class="page-pad">
+
+  <!-- 头部问候 -->
+  <view class="header">
+    <view>
+      <view class="greeting">{{greeting}}，正在变好的你</view>
+      <view class="date muted">{{dateStr}}</view>
+    </view>
+    <view class="header-badge" bindtap="goStats">📊</view>
+  </view>
+
+  <!-- 大打卡按钮 -->
+  <view class="hero card">
+    <view class="hero-title">今天想记录一支烟？</view>
+    <view class="hero-sub muted">点一下就好，不需要解释</view>
+    <view class="fab" bindtap="quickLog" hover-class="fab-hover">
+      <view class="fab-inner">+1</view>
+      <view class="fab-label">快速记录</view>
+    </view>
+    <view class="hero-link" bindtap="goRecord">还想记诱因 / 备注？去详细记录 →</view>
+  </view>
+
+  <!-- 三张概览卡 -->
+  <view class="stats-row">
+    <view class="stat card">
+      <view class="stat-num warn">{{today}}</view>
+      <view class="stat-label muted">今日支数</view>
+    </view>
+    <view class="stat card">
+      <view class="stat-num primary">{{streak}}</view>
+      <view class="stat-label muted">连续达标(天)</view>
+    </view>
+    <view class="stat card">
+      <view class="stat-num primary">¥{{saved}}</view>
+      <view class="stat-label muted">累计省下</view>
+    </view>
+  </view>
+
+  <!-- 近 7 天迷你趋势 -->
+  <view class="card trend-card">
+    <view class="row-between">
+      <view class="section-title">近 7 天</view>
+      <view class="section-sub link" bindtap="goStats">完整战绩 →</view>
+    </view>
+    <view class="bars">
+      <view class="bar-col" wx:for="{{trend}}" wx:key="full">
+        <view class="bar-track">
+          <view class="bar-fill" style="height: {{item.count / maxCount * 100}}%"></view>
+        </view>
+        <view class="bar-label muted">{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

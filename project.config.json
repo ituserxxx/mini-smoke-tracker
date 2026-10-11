@@ -1,0 +1,18 @@
+{
+  "description": "吸烟刺客 - 吸烟记录小程序（记录 / 留存 / 分享）",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "bigPackageSizeSupport": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.0.0",
+  "appid": "wxda0f0cee57f8564a",
+  "projectname": "smoke-tracker",
+  "condition": {}
+}

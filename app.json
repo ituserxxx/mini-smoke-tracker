@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/record/record",
+    "pages/stats/stats",
+    "pages/profile/profile",
+    "pages/health/health",
+    "pages/share/share",
+    "pages/login/login"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#060B16",
+    "navigationBarTitleText": "吸烟刺客",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#060B16",
+    "backgroundColorTop": "#060B16",
+    "backgroundColorBottom": "#060B16",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#6E7CA3",
+    "selectedColor": "#2DD4FF",
+    "backgroundColor": "#0A1020",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/record/record", "text": "记录" },
+      { "pagePath": "pages/stats/stats", "text": "战绩" },
+      { "pagePath": "pages/health/health", "text": "健康" },
+      { "pagePath": "pages/profile/profile", "text": "我的" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

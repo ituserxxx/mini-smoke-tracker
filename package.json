@@ -1,0 +1,9 @@
+{
+  "name": "smoke-tracker",
+  "version": "1.0.0",
+  "description": "吸烟刺客 - 微信小程序（云同步版）",
+  "main": "app.js",
+  "dependencies": {
+    "@tencent-ai/workbuddy-cloud-sdk": "dev"
+  }
+}

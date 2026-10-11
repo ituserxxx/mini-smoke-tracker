@@ -1,0 +1,11 @@
+<view class="login-page">
+  <view class="logo">🚭</view>
+  <view class="title">吸烟刺客</view>
+  <view class="subtitle">登录后，你的记录会安全同步到云端，换手机也不丢</view>
+
+  <button class="wx-btn btn-primary" loading="{{loading}}" bindtap="onWechatLogin">微信一键登录</button>
+
+  <view class="err" wx:if="{{error}}">{{error}}</view>
+
+  <view class="tip">登录即表示同意：我们仅用你的账号隔离和保护你的数据，绝不外泄。</view>
+</view>

@@ -1,0 +1,143 @@
+.overview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 24rpx;
+}
+.ov-item { display: flex; flex-direction: column; align-items: center; flex: 1; }
+.ov-num {
+  font-size: 48rpx; font-weight: 800; color: #EAF2FF;
+  font-family: "Bahnschrift", "DIN Alternate", "Roboto Mono", ui-monospace, monospace;
+  text-shadow: 0 0 16rpx rgba(61, 245, 176, 0.35);
+}
+.ov-label { font-size: 22rpx; margin-top: 4rpx; }
+.ov-divider {
+  width: 2rpx; height: 60rpx;
+  background: linear-gradient(180deg, transparent, rgba(45, 212, 255, 0.4), transparent);
+}
+
+.card { margin-bottom: 24rpx; }
+.trend-canvas {
+  width: 100%;
+  height: 320rpx;
+}
+.center { text-align: center; margin-top: 8rpx; }
+
+.badge-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+.badge {
+  width: calc((100% - 40rpx) / 3);
+  background: linear-gradient(160deg, rgba(28, 44, 74, 0.6), rgba(11, 18, 34, 0.7));
+  border: 1rpx solid rgba(45, 212, 255, 0.22);
+  border-radius: 20rpx;
+  padding: 24rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: 0 0 18rpx rgba(45, 212, 255, 0.08);
+}
+.badge-off { background: rgba(20, 28, 46, 0.5); border-color: rgba(120, 160, 220, 0.12); opacity: 0.6; box-shadow: none; }
+.badge-icon { font-size: 48rpx; }
+.badge-name { font-size: 24rpx; font-weight: 600; margin-top: 8rpx; color: #EAF2FF; }
+.badge-desc { font-size: 20rpx; margin-top: 4rpx; text-align: center; }
+
+.review-text { font-size: 28rpx; margin-bottom: 16rpx; }
+.review-tags { display: flex; flex-wrap: wrap; gap: 16rpx; margin-bottom: 16rpx; }
+.review-tag {
+  background: rgba(45, 212, 255, 0.1);
+  color: #7FE9FF;
+  border: 1rpx solid rgba(45, 212, 255, 0.35);
+  padding: 12rpx 24rpx; border-radius: 999rpx; font-size: 24rpx;
+}
+.review-tip { font-size: 22rpx; line-height: 1.6; }
+
+.share-btn {
+  margin: 16rpx 0 24rpx;
+  height: 96rpx; line-height: 96rpx;
+  text-align: center; font-size: 32rpx;
+}
+.share-hover { opacity: 0.9; }
+
+/* 健康代价（战绩页内的健康数据） */
+.health-card { padding: 30rpx 30rpx 26rpx; }
+.health-row {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 26rpx;
+}
+.health-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hc-v {
+  font-size: 42rpx;
+  font-weight: 800;
+  line-height: 1.15;
+  text-shadow: 0 0 18rpx currentColor;
+}
+.hc-l { font-size: 22rpx; margin-top: 6rpx; }
+.hc-range { font-size: 19rpx; margin-top: 4rpx; }
+.hc-divider {
+  width: 2rpx;
+  margin: 8rpx 0;
+  background: linear-gradient(180deg, transparent, rgba(45, 212, 255, 0.4), transparent);
+}
+
+.hp-block { margin-bottom: 22rpx; }
+.hp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+.hp-title { font-size: 24rpx; color: #C7D6F5; }
+.hp-count {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #3DF5B0;
+  text-shadow: 0 0 14rpx rgba(61, 245, 176, 0.45);
+}
+.hp-bar {
+  height: 14rpx;
+  border-radius: 999rpx;
+  background: rgba(120, 160, 220, 0.14);
+  overflow: hidden;
+}
+.hp-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, #2DD4FF, #3DF5B0);
+  box-shadow: 0 0 16rpx rgba(61, 245, 176, 0.5);
+  transition: width 0.3s;
+}
+
+.h-facts {
+  background: rgba(120, 160, 220, 0.06);
+  border-radius: 16rpx;
+  padding: 18rpx 22rpx;
+}
+.h-fact {
+  font-size: 22rpx;
+  color: #8FA6D6;
+  line-height: 1.75;
+}
+.h-fact .strong {
+  color: #FFC24B;
+  font-weight: 700;
+}
+
+.h-more {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #2DD4FF;
+  text-shadow: 0 0 14rpx rgba(45, 212, 255, 0.45);
+}
+.h-more-hover { opacity: 0.8; }

@@ -1,0 +1,95 @@
+<view class="page-pad">
+
+  <!-- 总览 -->
+  <view class="overview card">
+    <view class="ov-item">
+      <view class="ov-num primary">{{streak}}</view>
+      <view class="ov-label muted">连续达标(天)</view>
+    </view>
+    <view class="ov-divider"></view>
+    <view class="ov-item">
+      <view class="ov-num primary">¥{{saved}}</view>
+      <view class="ov-label muted">累计省下</view>
+    </view>
+    <view class="ov-divider"></view>
+    <view class="ov-item">
+      <view class="ov-num warn">{{total}}</view>
+      <view class="ov-label muted">累计记录(支)</view>
+    </view>
+  </view>
+
+  <!-- 健康代价 -->
+  <view class="card health-card">
+    <view class="section-title">这些烟的健康代价</view>
+
+    <view class="health-row">
+      <view class="health-cell">
+        <view class="hc-v warn mono">{{lifeText}}</view>
+        <view class="hc-l muted">预期寿命缩短</view>
+        <view class="hc-range muted">区间 {{lifeLowText}} ~ {{lifeHighText}}</view>
+      </view>
+      <view class="hc-divider"></view>
+      <view class="health-cell">
+        <view class="hc-v primary mono">{{freeText}}</view>
+        <view class="hc-l muted">距上一支烟</view>
+        <view class="hc-range muted">身体正在自愈</view>
+      </view>
+    </view>
+
+    <view class="hp-block">
+      <view class="hp-head">
+        <text class="hp-title">戒烟恢复里程碑</text>
+        <text class="hp-count mono">{{achieved}} / {{milestoneTotal}}</text>
+      </view>
+      <view class="hp-bar">
+        <view class="hp-fill" style="width:{{progress}}%"></view>
+      </view>
+    </view>
+
+    <view class="h-facts">
+      <view class="h-fact">每支烟含 <text class="strong">7000+</text> 种化学物质</view>
+      <view class="h-fact">其中 <text class="strong">69</text> 种为已知致癌物</view>
+      <view class="h-fact">吸烟者肺癌风险约为不吸烟者 <text class="strong">25</text> 倍</view>
+    </view>
+
+    <view class="h-more" bindtap="goHealth" hover-class="h-more-hover">查看完整健康统计 →</view>
+  </view>
+
+  <!-- 趋势图 -->
+  <view class="card">
+    <view class="section-title">近 14 天趋势</view>
+    <canvas type="2d" id="trend" class="trend-canvas"></canvas>
+    <view class="muted section-sub center">每根柱子是一天的吸烟支数，越矮越好</view>
+  </view>
+
+  <!-- 徽章墙 -->
+  <view class="card">
+    <view class="section-title">成就徽章</view>
+    <view class="badge-grid">
+      <view wx:for="{{badges}}" wx:key="id" class="badge {{item.unlocked ? '' : 'badge-off'}}">
+        <view class="badge-icon">{{item.unlocked ? item.icon : '🔒'}}</view>
+        <view class="badge-name">{{item.name}}</view>
+        <view class="badge-desc muted">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 本周复盘 -->
+  <view class="card">
+    <view class="section-title">本周诱因复盘</view>
+    <block wx:if="{{review.total > 0}}">
+      <view class="review-text">过去 7 天共记录 <text class="primary">{{review.total}}</text> 支，最常见的情境是：</view>
+      <view class="review-tags">
+        <view wx:for="{{review.top}}" wx:key="trigger" class="review-tag">
+          {{item.trigger}} · {{item.count}}次
+        </view>
+      </view>
+      <view class="review-tip muted">小建议：下次这些情境出现前，先准备一个替代动作（喝水 / 深呼吸 / 嚼口香糖）。</view>
+    </block>
+    <view wx:else class="muted">本周还没有记录，点底部或首页开始第一笔吧。</view>
+  </view>
+
+  <!-- 分享入口 -->
+  <view class="share-btn btn-primary" bindtap="goShare" hover-class="share-hover">生成我的战绩卡片 →</view>
+
+</view>

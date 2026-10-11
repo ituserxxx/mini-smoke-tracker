@@ -1,0 +1,32 @@
+<view class="page">
+
+  <view class="head">
+    <view class="kicker">SHARE · 战绩卡片</view>
+    <view class="h-title">把这程进步分享出去</view>
+    <view class="h-sub">让改变被看见，也给自己一份正向约束</view>
+  </view>
+
+  <view class="ranges">
+    <view
+      wx:for="{{ranges}}"
+      wx:key="key"
+      class="range-pill {{rangeIndex === index ? 'active' : ''}}"
+      data-index="{{index}}"
+      bindtap="onRangeTap">{{item.label}}</view>
+  </view>
+
+  <view class="poster-stage">
+    <canvas type="2d" id="poster" class="poster" style="{{posterStyle}}"></canvas>
+    <view wx:if="{{!posterStyle}}" class="poster-placeholder">海报生成中…</view>
+  </view>
+
+  <view class="actions">
+    <view class="btn btn-primary {{drawing ? 'btn-disabled' : ''}}" bindtap="savePoster" hover-class="btn-hover">
+      {{drawing ? '生成中…' : '保存海报到相册'}}
+    </view>
+    <button class="btn btn-ghost" open-type="share" hover-class="btn-hover">分享给好友</button>
+  </view>
+
+  <view class="tip">记录不是自责，而是给改变积累数据。</view>
+
+</view>
